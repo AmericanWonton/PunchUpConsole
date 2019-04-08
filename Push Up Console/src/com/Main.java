@@ -56,7 +56,7 @@ public class Main {
 		
 		try {
 			File f = new File
-			("E:\\Coding 2019 Work\\Java Development\\Push Up Console Version\\Project\\Producer.txt");
+			("C:\\Users\\jbkel\\git\\PunchUpConsole\\Push Up Console\\src\\com\\Producer.txt");
 			FileReader fr = new FileReader(f);
 			BufferedReader br = new BufferedReader(fr);
 			line = br.readLine(); //Should read the first asteriks
@@ -386,7 +386,7 @@ public class Main {
 		
 		try {
 			File f = new File
-			("E:\\Coding 2019 Work\\Java Development\\Push Up Console Version\\Project\\Producer.txt");
+			("C:\\Users\\jbkel\\git\\PunchUpConsole\\Push Up Console\\src\\com\\Producer.txt");
 			FileWriter fw = new FileWriter(f);
 			fw.write("**"); //Clears File Entirely
 			fw.write(newLine);
@@ -399,7 +399,7 @@ public class Main {
 		
 		try {
 			File f = new File
-			("E:\\Coding 2019 Work\\Java Development\\Push Up Console Version\\Project\\Producer.txt");
+			("C:\\Users\\jbkel\\git\\PunchUpConsole\\Push Up Console\\src\\com\\Producer.txt");
 			FileWriter fw = new FileWriter(f, true);
 		
 			s = "ProducerDesk: " + pd.getID(); //Create PD Line

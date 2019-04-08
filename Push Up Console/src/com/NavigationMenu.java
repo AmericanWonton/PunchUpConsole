@@ -77,7 +77,7 @@ public class NavigationMenu {
 		
 		try {
 			System.out.printf("Press 1 to submit a Script to your profile.%n" +
-		"Press 2 to delete a script from your profile.%n" +
+		"Press 2 to delete a Script from your profile.%n" +
 					"Press 3 to Look up a Script. Press 4 to sign out.%n");
 			choice = Integer.parseInt(scan.nextLine());
 		}catch(InputMismatchException e) {
@@ -87,7 +87,7 @@ public class NavigationMenu {
 		}
 		while((choice != 1) && (choice != 2) && (choice != 3) && (choice!= 4)) {
 					System.out.printf("Press 1 to submit a Script to your profile.%n" +
-							"Press 2 to delete a script from your profile.%n" +
+							"Press 2 to delete a Script from your profile.%n" +
 										"Press 3 to Look up a Script. Press 4 to sign out.%n");
 					try {
 						choice = Integer.parseInt(scan.nextLine());
@@ -215,15 +215,13 @@ public class NavigationMenu {
 			}
 			else {
 				for (int j = 0; j < mProdDesk.getScriptwriters().size(); j++) {
-					System.out.println(j);
 					if (name.contentEquals(mProdDesk.getScriptwriters().get(j).getUsername())) {
 						validName = true;
 						System.out.println(" ");
 						break;
 					}
 					else {
-						System.out.printf("Debug name %s%n",
-								mProdDesk.getScriptwriters().get(j).getUsername());
+	
 					}
 				}
 				//If Username not found
@@ -288,7 +286,7 @@ public class NavigationMenu {
 		" the file extension.%n" + "Example: 'D:\\Folder\\OtherFolder\\fileName.txt'%n");
 		field = skan6.nextLine();
 		newScript.setFilePath(field);
-		System.out.println("Okay! Are you sure you want to enter this script?" +
+		System.out.println("Okay! Are you sure you want to enter this Script?" +
 		"Enter 'y' for yes or 'n'for no.");
 		field = skan6.nextLine();
 		if (field.equalsIgnoreCase("y")) {
@@ -333,7 +331,6 @@ public class NavigationMenu {
 				}
 			}
 		}
-		System.out.printf("Debug Script Size: %s%n", authorScripts.size());
 		if (authorScripts.size() == 0) {
 			System.out.printf("You don't have any scripts to remove %s!%n",mUsername );
 		}
@@ -357,10 +354,13 @@ public class NavigationMenu {
 						rightChoice = false;
 					}
 					else {//remove script
-						System.out.printf("Okay, removing %s!%n", authorScripts.get(field -1).getTitle());
+						System.out.printf("Okay, removing %s!%n",
+								authorScripts.get(field -1).getTitle());
 						mProdDesk.removeScript(authorScripts.get(field -1));
-						for (int j = 0; j < mProdDesk.getScriptwriters().size(); j++) {//set Scripts written
-							if (mProdDesk.getScriptwriters().get(j).getUsername().equalsIgnoreCase(mUsername)) {
+						for (int j = 0; j < mProdDesk.getScriptwriters().size(); j++) {
+							//set Scripts written
+							if (mProdDesk.getScriptwriters().get(j)
+									.getUsername().equalsIgnoreCase(mUsername)) {
 								mProdDesk.getScriptwriters().get(j).removeScriptsWritten();
 								break;
 							}
@@ -388,13 +388,15 @@ public class NavigationMenu {
 		boolean[] okayChoices = {false, false, false};
 		boolean goodNum = false;
 		
-		System.out.printf("Okay %s, do you want to look up the Script by title or author?%n", mUsername);
+		System.out.printf("Okay %s, do you want to look up the" +
+		" Script by title or author?%n", mUsername);
 		do {
 			try {
 				System.out.printf("1.Title 2.Author%n");
 				numInput = Integer.parseInt(skan8.nextLine());
 				if (numInput != 1 && numInput != 2) {
-					System.out.printf("Please enter 1 to look up by title or 2 to look up by author.%n");
+					System.out.printf("Please enter 1 to look up by title or" +
+				" 2 to look up by author.%n");
 					okayChoices[0] = false;
 				}
 				else {
@@ -406,8 +408,8 @@ public class NavigationMenu {
 		}while(okayChoices[0] == false);
 		
 		if (numInput == 1) {//By Title
-			System.out.println("Please enter title of script. If you can't remember, enter 'back' to exit.");
-			System.out.println(mProdDesk.getScripts().get(0).getTitle());
+			System.out.println("Please enter title of script." +
+		" If you can't remember, enter 'back' to exit.");
 			do {
 				input = skan8.nextLine();
 				if (input.equalsIgnoreCase(BACK)) {
@@ -426,7 +428,8 @@ public class NavigationMenu {
 					}
 				}
 				if (okayChoices[1] != true) {
-					System.out.println("Script title not found. Enter it again or type back to go back.");
+					System.out.println("Script title not found. Enter it" +
+				" again or type back to go back.");
 				}
 			}while(okayChoices[1] != true);
 			//Script is either found or we are exiting (Yes if, no else,(exit))
@@ -436,15 +439,17 @@ public class NavigationMenu {
 				System.out.printf("%s found! What would you like to do?%n", input);
 				do {
 					try {
-						System.out.printf("1. Comment on %s 2. Look at Comments. 3.Exit%n", input);
+						System.out.printf("1. Comment on %s 2. Look at Comments. 3.Exit%n",
+								input);
 						numInput = Integer.parseInt(skan8.nextLine());
 						while ((numInput != 1) && (numInput != 2) && (numInput != 3)) {
-							System.out.printf("Please enter 1 to give %s a comment, 2. to look at" +
-						" comments for %s, or 3 to exit.%n", input, input);
+							System.out.printf("Please enter 1 to give %s a comment, 2. to look at"
+						+ " comments for %s, or 3 to exit.%n", input, input);
 							numInput = Integer.parseInt(skan8.nextLine());
 						}
 					}catch(NumberFormatException e) {
-						System.out.printf("Please enter either 1 for comment, 2 for looking at comments,"+
+						System.out.printf("Please enter either 1 for comment," +
+					" 2 for looking at comments,"+
 					" or 3 to exit.%n");
 						numInput = 0;
 					}
@@ -478,7 +483,8 @@ public class NavigationMenu {
 			}
 		}
 		else {//By Author (numInput ==2)
-			System.out.println("Please enter Author of script. If you can't remember, enter 'back' to exit.");
+			System.out.println("Please enter Author of script. If you can't" +
+		" remember, enter 'back' to exit.");
 			do {
 				input = skan8.nextLine();
 				if (input.equalsIgnoreCase(BACK)) {
@@ -497,7 +503,8 @@ public class NavigationMenu {
 					}
 				}
 				if (okayChoices[1] != true) {
-					System.out.printf("Sorry, we did not find any titles for %s. Enter the author again" +
+					System.out.printf("Sorry, we did not find any titles for %s." +
+				" Enter the author again" +
 				"or enter %s to exit.'%n", input, BACK);
 				}
 				
@@ -511,19 +518,22 @@ public class NavigationMenu {
 					while (goodNum != true) {
 						try {
 							for (int x = 0; x < foundScripts.size(); x++) {
-								System.out.printf("%s: %s%n", x+1, foundScripts.get(x).getTitle());
+								System.out.printf("%s: %s%n",
+										x+1, foundScripts.get(x).getTitle());
 							}
 							System.out.printf("%s: Exit", foundScriptSize + 1); //Exit Button
 							numInput = Integer.parseInt(skan8.nextLine());
 							while ((numInput < 1) || (numInput > foundScriptSize+ 1)) {
-								System.out.printf("Please enter a number 1 through %s.%n", foundScriptSize +1);
+								System.out.printf("Please enter a number 1 through %s.%n",
+										foundScriptSize +1);
 								numInput = Integer.parseInt(skan8.nextLine());
 							}
 						}catch(NumberFormatException e) {
 							System.out.printf("Please enter a number 1 through %s.%n",
 									foundScriptSize + 1);
 						}catch(IndexOutOfBoundsException j) {
-							System.out.printf("Out of range. Please enter a number 1 through %s.%n",
+							System.out.printf("Out of range. Please enter a number 1" +
+						" through %s.%n",
 									foundScriptSize +1);
 						}
 						if ((numInput >=1) && (numInput <= foundScriptSize + 1)) {
@@ -546,7 +556,8 @@ public class NavigationMenu {
 									elScript.getTitle());
 							numInput = Integer.parseInt(skan8.nextLine());
 							while ((numInput != 1) && (numInput != 2) && (numInput != 3)) {
-								System.out.printf("Please enter 1 to give %s a comment, 2. to look at" +
+								System.out.printf("Please enter 1 to give %s a comment,"+
+							" 2. to look at" +
 							" comments for %s, or 3 to exit.%n",
 							elScript.getTitle(), elScript.getTitle());
 								numInput = Integer.parseInt(skan8.nextLine());
@@ -619,14 +630,16 @@ public class NavigationMenu {
 		newComment.setComment(comment);
 		newComment.setScriptTitle(comScript.getTitle());
 		
-		for (int f = 0; f != mProdDesk.getScriptwriters().size(); f++) {//Sets NewComment Scriptwriter ID
+		for (int f = 0; f != mProdDesk.getScriptwriters().size(); f++) {
+			//Sets NewComment Scriptwriter ID
 			if (mProdDesk.getScriptwriters().get(f).getUsername().equalsIgnoreCase(mUsername)) {
 				newComment.setScriptWriter(mProdDesk.getScriptwriters().get(f));
 				break;
 			}
 		}
 		
-		for (int j = 0; j != mProdDesk.getScripts().size(); j++) {//Add comment to script and producer desk
+		for (int j = 0; j != mProdDesk.getScripts().size(); j++) {
+			//Add comment to script and producer desk
 			if (mProdDesk.getScripts().get(j).getID().contentEquals(comScript.getID())) {
 				newComment.setScript(mProdDesk.getScripts().get(j));
 				mProdDesk.getScripts().get(j).addComment(newComment);
