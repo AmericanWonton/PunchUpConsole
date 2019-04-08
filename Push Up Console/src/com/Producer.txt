@@ -1,0 +1,22 @@
+**
+ProducerDesk: 75O337DBEE
+**
+mUsers
+0:Joseph Keller|
+1:Frank Reynolds|
+***DoneUsers***
+mScriptwriters
+514O5A2346|Joseph Keller|myPassword123|1|
+OD25E149EE|Frank Reynolds|Paddy's Pub|1|
+***DoneScriptwriters***
+mScripts
+OEO8E295EC|C:\Users\jbkel\Desktop\Scripts\The Low Rent Script.txt|The Low Rent Script|Low_Rent|Joseph Keller|Joe K Inc|
+4A7795AE7E|C:\Users\jbkel\Desktop\Scripts\The Day Man Cometh.txt|The Day Man Cometh|Action Comedy|Frank Reynolds|pub comp inc|
+***DoneScripts***
+mComments
+6O5D6BD111|Joseph Keller|514O5A2346|OEO8E295EC|4|True! True!|
+32A22O17DB|Frank Reynolds|OD25E149EE|4A7795AE7E|3|Very Inspirational!|
+649822O6DC|Frank Reynolds|OD25E149EE|4A7795AE7E|1|I like the opening!|
+DBEBEC6C5D|Frank Reynolds|OD25E149EE|4A7795AE7E|6|Charlie, it's the waitress. Stop calling me.|
+D589ECA5CO|Frank Reynolds|OD25E149EE|OEO8E295EC|4|Hmmmm, wasn't quite sure what you were going for there.|
+***DoneComments***
